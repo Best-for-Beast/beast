@@ -1,0 +1,15 @@
+# dotenv environment variables file
+.env
+.env.local
+
+# Dependency directories
+node_modules/
+
+# Logs
+npm-debug.log*
+
+# Svelte
+public/build
+
+# ESLint
+.eslintcache
