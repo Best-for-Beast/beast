@@ -1,11 +1,9 @@
 <script lang="ts">
-  import { Footer, Header, Hero } from './components/layout'
   import { TailwindProvider } from './components/utility'
+  import { Router } from './routes'
 </script>
 
 <main>
   <TailwindProvider />
-  <Header />
-  <Hero />
-  <Footer />
+  <Router />
 </main>
