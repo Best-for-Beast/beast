@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Gender } from '../../../services/api/pets/interfaces'
-  import ArrowRightIcon from '../../../assets/svg/arrow-right.svg'
+  import ArrowCircleRightIcon from '../../../assets/svg/arrow-circle-right.svg'
 
   import { formatPetAge } from './helpers'
   import PetGender from './PetGender.svelte'
@@ -8,8 +8,8 @@
   export let id: string
   export let name: string
   export let gender: Gender
-  export let description: string = ''
-  export let imageURL: string = 'https://dummyimage.com/305x420'
+  export let description = ''
+  export let imageURL = 'https://dummyimage.com/305x420'
   export let dateOfBirthTimestamp: number | null = null
 
   const formattedPetAge = dateOfBirthTimestamp
@@ -37,8 +37,9 @@
       <div class="text-right">
         <a
           class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-          href={`/#/pet/${id}`}>Details
-          <ArrowRightIcon />
+          href={`/#/pet/${id}`}>
+          <span>Details</span>
+          <ArrowCircleRightIcon class="pl-1 h-6 w-6" />
         </a>
       </div>
     </div>
