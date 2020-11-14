@@ -75,6 +75,9 @@
     ],
     "*.css": [
       "prettier --write"
+    ],
+    "*.svelte": [
+      "svelte-check"
     ]
   }
 }
