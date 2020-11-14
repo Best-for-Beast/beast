@@ -1,3 +1,4 @@
+public/build
 jest.config.js
 rollup.config.js
 svelte.config.js

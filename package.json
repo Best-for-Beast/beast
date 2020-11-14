@@ -11,13 +11,9 @@
     "dev": "rollup -c -w",
     "start": "sirv public --single",
     "validate": "svelte-check",
-<<<<<<< HEAD
-    "test": "echo \"No tests yet\""
-=======
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint --cache --fix"
->>>>>>> 🚧 Add the list of pets. The feature also introduces a couple of libraries. 'jest' for testing, 'msw' for mocking server data handling, 'date-fns' fir data handling and 'svelte-spa-router' for routing.
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
