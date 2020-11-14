@@ -10,7 +10,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --single",
-    "validate": "svelte-check"
+    "validate": "svelte-check",
+    "test": "echo \"No tests yet\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
