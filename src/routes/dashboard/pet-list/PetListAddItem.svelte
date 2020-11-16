@@ -9,7 +9,7 @@
       <div>
         <h1
           class="title-font text-lg font-medium text-gray-900 mb-1 flex items-center">
-          <span>No pets added yet</span>
+          <span>Add new family member!</span>
         </h1>
         <p class="leading-relaxed mb-3">
           Adding a pet allows you to keep track of health record book online.
@@ -18,7 +18,7 @@
       </div>
       <button
         class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-        Add a pet
+        Add
       </button>
     </div>
   </div>

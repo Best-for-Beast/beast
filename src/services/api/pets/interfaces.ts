@@ -8,7 +8,6 @@ export interface IPetResultBody {
   id: string
   name: string
   gender: Gender
-
   dateOfBirthTimestamp?: number
   description?: string
   imageURL?: string

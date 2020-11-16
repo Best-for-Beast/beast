@@ -33,7 +33,7 @@
         class="tracking-widest text-xs title-font font-medium text-gray-500 mb-3">
         {formattedPetAge}
       </h2>
-      <p class="leading-relaxed mb-3 h-32">{description}</p>
+      <p class="leading-relaxed mb-3">{description}</p>
       <div class="text-right">
         <a
           class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
