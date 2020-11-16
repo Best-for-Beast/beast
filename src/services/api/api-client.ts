@@ -10,10 +10,9 @@ async function request<T>(url: string, method: HTTPMethod): Promise<T> {
   const result = await fetch(url, {
     method,
   })
-
   return await result.json()
 }
 
-export async function get<T>(url: string): Promise<T> {
-  return await request(url, HTTPMethod.Get)
+export function get<T>(url: string): Promise<T> {
+  return request(url, HTTPMethod.Get)
 }
