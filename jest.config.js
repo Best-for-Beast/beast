@@ -1,7 +1,7 @@
 module.exports = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
-    '^.+\\.svg$': '<rootDir>/svgTransform.js',
+    '^.+\\.svg$': '<rootDir>/jest/svg-transform.js',
     '^.+\\.svelte$': [
       'svelte-jester',
       {
