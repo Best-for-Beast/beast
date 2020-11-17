@@ -1,7 +1,6 @@
 <script lang="ts">
-  import type { Gender } from '../../../services/api/pets/interfaces'
+  import type { Gender } from '../../../services/api/pets/contracts'
   import ArrowCircleRightIcon from '../../../assets/svg/arrow-circle-right.svg'
-
   import { formatPetAge } from './helpers'
   import PetGender from './PetGender.svelte'
 

@@ -1,6 +1,6 @@
-import { Gender, IPetResultBody } from '../../services/api/pets/interfaces'
+import { Gender, PetDto } from '../../se../../services/api/pets/contracts'
 
-const PETS: IPetResultBody[] = [
+const PETS: PetDto[] = [
   {
     id: '13ef10a9-3279-4096-a48e-13acf44724a4',
     name: 'Grumpy',

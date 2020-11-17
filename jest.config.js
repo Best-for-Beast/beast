@@ -1,6 +1,7 @@
 module.exports = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
+    '^.+\\.svg$': '<rootDir>/svgTransform.js',
     '^.+\\.svelte$': [
       'svelte-jester',
       {
@@ -9,5 +10,5 @@ module.exports = {
     ],
   },
   moduleFileExtensions: ['js', 'ts', 'svelte'],
-  setupFiles: ['jest-date-mock'],
+  setupFiles: ['jest-date-mock', '<rootDir>/src/setupTests.ts'],
 }

@@ -1,6 +1,4 @@
 import { get } from '../api-client'
-import type { IGetPetsResult } from './interfaces'
+import type { PetDto } from './contracts'
 
-export async function getPets(): Promise<IGetPetsResult> {
-  return await get('api/pets')
-}
+export const getPets = async (): Promise<PetDto[]> => get('api/pets')
