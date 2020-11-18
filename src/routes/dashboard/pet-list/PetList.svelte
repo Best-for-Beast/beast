@@ -2,13 +2,15 @@
   import { getPets } from '../../../services/api/pets'
   import PetListItem from './PetListItem.svelte'
   import PetListAddItem from './PetListAddItem.svelte'
+
+  const fetchedPets = getPets()
 </script>
 
-{#await getPets()}
+{#await fetchedPets}
   <p>...waiting</p>
-{:then data}
+{:then fetchedPets}
   <div class="flex flex-wrap -m-4">
-    {#each data as pet}
+    {#each fetchedPets as pet}
       <PetListItem {...pet} />
     {/each}
     <PetListAddItem />

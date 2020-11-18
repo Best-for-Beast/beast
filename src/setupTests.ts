@@ -1,3 +1,9 @@
-import fetchMock from 'jest-fetch-mock'
+import { worker } from './mocks/node'
+/* tslint:disable:no-unused-variable */
+import fetch from 'jest-fetch-mock'
 
-fetchMock.enableMocks()
+beforeAll(() => worker.listen())
+// Reset any request handlers that we may add during the tests, so they don't affect other tests.
+afterEach(() => worker.resetHandlers())
+// Clean up after the tests are finished.
+afterAll(() => worker.close())

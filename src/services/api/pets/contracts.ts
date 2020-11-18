@@ -9,6 +9,6 @@ export interface PetDto {
   name: string
   gender: Gender
   dateOfBirthTimestamp?: number
-  description?: string
+  description: string
   imageURL?: string
 }

@@ -1,19 +1,19 @@
 const svelte = require('svelte/compiler')
 const path = require('path')
 
-const svgSourceDummy = (id) => `
+const svgSourceDummy = (filename) => `
   <script>
     export let height = null
     export let width = null
     export let fill = null
   </script>
 
-  <div id=${id} class="{$$props.class}" {height} {width} {fill} />
+  <div data-testid=${filename} class="{$$props.class}" {height} {width} {fill} />
 `
 
 function process(_, filename) {
-  const id = path.basename(filename)
-  const result = svelte.compile(svgSourceDummy(id), {
+  const name = path.basename(filename)
+  const result = svelte.compile(svgSourceDummy(name), {
     filename,
     // Allow tests to set component props.
     accessors: true,
