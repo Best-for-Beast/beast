@@ -101,8 +101,7 @@
               data-testid="pet-description"
               id="pet-description"
               rows="2"
-              class="p-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-              placeholder="you@example.com" />
+              class="p-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" />
           </div>
         </div>
         <!--ADD/CANCEL-->

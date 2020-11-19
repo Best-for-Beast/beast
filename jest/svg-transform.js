@@ -8,8 +8,7 @@ const svgSourceDummy = (filename) => `
     export let fill = null
   </script>
 
-  <div data-testid=${filename} class="{$$props.class}" {height} {width} {fill} />
-`
+  <div data-testid=${filename} class="{$$props.class}" {height} {width} {fill} />`
 
 function process(_, filename) {
   const name = path.basename(filename)
