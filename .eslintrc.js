@@ -33,4 +33,7 @@ module.exports = {
   settings: {
     'svelte3/preprocess': eslintSveltePreprocess(preprocess),
   },
+  rules: {
+    'no-unused-vars': 'off',
+  },
 }

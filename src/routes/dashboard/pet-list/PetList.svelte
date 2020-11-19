@@ -2,19 +2,24 @@
   import { getPets } from '../../../services/api/pets'
   import PetListItem from './PetListItem.svelte'
   import PetListAddItem from './PetListAddItem.svelte'
+  import CreatePet from './CreatePet.svelte'
 
-  const fetchedPets = getPets()
+  let isPetCreationOn = false
 </script>
 
-{#await fetchedPets}
-  <p>...waiting</p>
-{:then fetchedPets}
-  <div class="flex flex-wrap -m-4">
+<div class="flex flex-wrap -m-4">
+  {#await getPets()}
+    <p>...waiting</p>
+  {:then fetchedPets}
     {#each fetchedPets as pet}
       <PetListItem {...pet} />
     {/each}
-    <PetListAddItem />
-  </div>
-{:catch error}
-  <p>An error occurred! {error}</p>
-{/await}
+  {:catch error}
+    <p>An error occurred! {error}</p>
+  {/await}
+  {#if isPetCreationOn}
+    <CreatePet bind:isPetCreationOn />
+  {:else}
+    <PetListAddItem bind:isPetCreationOn />
+  {/if}
+</div>

@@ -18,7 +18,7 @@
 
 <div class="p-4 md:w-1/3">
   <div
-    class="h-full border-2 border-gray-200 rounded-lg overflow-hidden"
+    class="h-full shadow sm:rounded-md rounded-lg overflow-hidden"
     data-testid="pet-item-{id}">
     <img
       class="lg:h-48 md:h-36 w-full object-cover object-center"
