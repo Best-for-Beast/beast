@@ -22,6 +22,7 @@
               <FileUpload />
               <p class="text-sm text-gray-600">
                 <button
+                  type="button"
                   class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   Upload a file
                 </button>
