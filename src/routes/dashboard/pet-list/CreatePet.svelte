@@ -1,8 +1,22 @@
 <script lang="ts">
   import FileUpload from '../../../assets/svg/file-upload.svg'
-  export let isPetCreationOn: boolean
+  import { Gender } from '../../../services/api/pets/contracts'
+  import type { CreatePetDto } from '../../../services/api/pets/contracts'
 
-  let petName = ''
+  export let onCancel: () => void
+  export let onCreate: (newPet: CreatePetDto) => void
+
+  const resetPet = (): CreatePetDto => {
+    return {
+      name: '',
+      gender: Gender.Undefined,
+      dateOfBirthTimestamp: undefined,
+      description: '',
+      imageURL: '',
+    }
+  }
+
+  const newPet: CreatePetDto = resetPet()
 </script>
 
 <div class="p-4 md:w-1/3">
@@ -11,7 +25,10 @@
       action="#"
       method="POST"
       data-testid="create-pet-form"
-      on:submit|preventDefault={() => (isPetCreationOn = false)}>
+      on:submit|preventDefault={() => {
+        onCreate(newPet)
+        resetPet()
+      }}>
       <div class="px-4 py-4 grid grid-cols-6 gap-3">
         <!--PHOTO-->
         <div class="col-span-6">
@@ -42,7 +59,7 @@
           <input
             data-testid="pet-name"
             type="text"
-            bind:value={petName}
+            bind:value={newPet.name}
             id="pet_name"
             class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
         </div>
@@ -112,13 +129,16 @@
           <button
             type="button"
             data-testid="pet-cancel-button"
-            on:click={() => (isPetCreationOn = false)}
+            on:click={() => {
+              onCancel()
+              resetPet()
+            }}
             class="mx-auto text-white bg-red-600 border-0 py-2 px-8 focus:outline-none hover:bg-red-700 rounded text-lg">
             Cancel
           </button>
           <button
             type="submit"
-            disabled={petName.length === 0 || undefined}
+            disabled={newPet.name.length === 0 || undefined}
             data-testid="pet-create-button"
             class="disabled:opacity-50 mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
             Create

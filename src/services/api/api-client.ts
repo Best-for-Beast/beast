@@ -6,13 +6,16 @@ enum HTTPMethod {
   Delete = 'DELETE',
 }
 
-async function request<T>(url: string, method: HTTPMethod): Promise<T> {
+export async function get<T>(url: string): Promise<T> {
   const result = await fetch(url, {
-    method,
+    method: HTTPMethod.Get,
   })
   return result.json()
 }
 
-export function get<T>(url: string): Promise<T> {
-  return request(url, HTTPMethod.Get)
+export async function post<T>(url: string, body: T): Promise<void> {
+  await fetch(url, {
+    method: HTTPMethod.Post,
+    body: JSON.stringify(body),
+  })
 }

@@ -1,6 +1,6 @@
 import { Gender, PetDto } from '../../se../../services/api/pets/contracts'
 
-const PETS: PetDto[] = [
+export const PETS: PetDto[] = [
   {
     id: '13ef10a9-3279-4096-a48e-13acf44724a4',
     name: 'Grumpy',
@@ -23,4 +23,13 @@ const PETS: PetDto[] = [
   },
 ]
 
-export default PETS
+export const PET_TO_CREATE: PetDto = {
+  id: 'b6c8872b-2f63-4511-966e-a691c30018d4',
+  name: 'Tuna',
+  description:
+    'Tuna is a rescue dog who was adopted by Courtney Dasher. He has an overbite meaning his top teeth protrude over his bottom lip. Dasher created an Instagram account for him when he was a pup to record the growth of his teeth. His unusual appearance gained him attention initially but over time people started to love Tuna and his interesting photos. He is often seen dressed up in costumes and making funny remarks.',
+  gender: Gender.Female,
+  dateOfBirthTimestamp: 1353407835,
+  imageURL:
+    'https://www.contentqueens.co.uk/media/1118/tuna.jpg?width=500&height=281.05263157894734',
+}

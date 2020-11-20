@@ -5,7 +5,7 @@ import {
   getByText,
   getByTestId,
 } from '@testing-library/svelte'
-import { default as PETS } from '../mocks/data/pets'
+import { PETS } from '../mocks/data/pets'
 import { Gender } from '../services/api/pets/contracts'
 
 describe('As a Pet Owner I want to access Dashboard so that I can see the list of my pets', () => {

@@ -1,4 +1,5 @@
 import PetList from '../routes/dashboard/pet-list/PetList.svelte'
+import { PET_TO_CREATE } from '../mocks/data/pets'
 import '@testing-library/jest-dom'
 import {
   render,
@@ -49,5 +50,22 @@ describe('As a pet owner I want to add new pet so I can see it among rest of my 
     await fireEvent.input(petNameInput, { target: { value: 'whatever' } })
     // Assert
     expect(petCreateButton).toBeEnabled()
+  })
+
+  it('GIVEN form <Name>, <Type>, <Breed>, <Birthdate>, <Gender>, <Description> WHEN pet owner creates pet THEN pet can be found in the pet list', async () => {
+    // Arrange
+    const sut = render(PetList)
+    await fireEvent.click(sut.getByTestId('add-pet-button'))
+    const addPetItem = sut.getByTestId(petFormTestId)
+    await fireEvent.input(getByTestId(sut.container, 'pet-name'), {
+      target: { value: PET_TO_CREATE.name },
+    })
+    // Act
+    await fireEvent.click(getByTestId(addPetItem, 'pet-create-button'))
+    await waitFor(() => sut.getByTestId(`pet-item-${PET_TO_CREATE.id}`))
+    // Assert
+    const addedPet = sut.getByTestId(`pet-item-${PET_TO_CREATE.id}`)
+    expect(addedPet).toHaveTextContent(PET_TO_CREATE.name)
+    throw '↑ works, finish: <Type>, <Breed>, <Birthdate>, <Gender>, <Description> '
   })
 })
