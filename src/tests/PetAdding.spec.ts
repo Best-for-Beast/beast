@@ -38,17 +38,15 @@ describe('As a pet owner I want to add new pet so I can see it among rest of my 
     expect(getByTestId(addPetItem, 'pet-cancel-button')).toBeInTheDocument()
   })
 
-  it('GIVEN tile with editable form is in the pet list AND at least pet <Name> is specified THEN create action is available', async () => {
+  it('GIVEN create pet form is availible in the dashboard AND at least pet <Name> is specified THEN create action is available', async () => {
     // Arrange
     const sut = render(PetList)
-    const addButton = sut.getByTestId('add-pet-button')
-    await fireEvent.click(addButton)
-    const addPetItem = sut.getByTestId(petFormTestId)
-    const petNameInput = getByTestId(addPetItem, 'pet-name')
-    const petCreateButton = getByTestId(addPetItem, 'pet-create-button')
+    await fireEvent.click(sut.getByTestId('add-pet-button'))
+    const petNameInput = getByTestId(sut.container, 'pet-name')
+    const petCreateButton = getByTestId(sut.container, 'pet-create-button')
     expect(petCreateButton).toBeDisabled()
     // Act
-    await fireEvent.change(petNameInput, { target: { value: 'whatever' } })
+    await fireEvent.input(petNameInput, { target: { value: 'whatever' } })
     // Assert
     expect(petCreateButton).toBeEnabled()
   })

@@ -9,4 +9,10 @@ module.exports = {
     content: ['./src/**/*.svelte', './public/index.html'],
     enabled: production,
   },
+  variants: {
+    // Nie działa :( - Może Szymon ma pomysł?
+    extend: {
+      opacity: ['disabled'],
+    },
+  },
 }

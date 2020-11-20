@@ -1,6 +1,8 @@
 <script lang="ts">
   import FileUpload from '../../../assets/svg/file-upload.svg'
   export let isPetCreationOn: boolean
+
+  let petName = ''
 </script>
 
 <div class="p-4 md:w-1/3">
@@ -40,6 +42,7 @@
           <input
             data-testid="pet-name"
             type="text"
+            bind:value={petName}
             id="pet_name"
             class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
         </div>
@@ -115,8 +118,9 @@
           </button>
           <button
             type="submit"
+            disabled={petName.length === 0 || undefined}
             data-testid="pet-create-button"
-            class="mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            class="disabled:opacity-50 mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
             Create
           </button>
         </div>
