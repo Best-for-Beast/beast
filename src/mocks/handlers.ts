@@ -15,6 +15,8 @@ export const handlers = [
       name: createPetDto.name,
       description: createPetDto.description,
       dateOfBirthTimestamp: createPetDto.dateOfBirthTimestamp,
+      type: createPetDto.type,
+      breed: createPetDto.breed,
       gender: createPetDto.gender,
       imageURL: PET_TO_CREATE.imageURL,
     }
