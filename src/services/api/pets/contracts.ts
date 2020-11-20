@@ -4,10 +4,19 @@ export enum Gender {
   Undefined = 'undefined',
 }
 
+export enum PetType {
+  Cat = 'cat',
+  Dog = 'dog',
+  Horse = 'horse',
+  Undefined = 'undefined',
+}
+
 export interface CreatePetDto {
   name: string
+  type: PetType
+  breed: string
   gender: Gender
-  dateOfBirthTimestamp?: number
+  dateOfBirthTimestamp: number
   description: string
   imageURL?: string
 }
@@ -15,6 +24,8 @@ export interface CreatePetDto {
 export interface PetDto {
   id: string
   name: string
+  type: PetType
+  breed: string
   gender: Gender
   dateOfBirthTimestamp?: number
   description: string

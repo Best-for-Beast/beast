@@ -1,22 +1,26 @@
 <script lang="ts">
   import FileUpload from '../../../assets/svg/file-upload.svg'
-  import { Gender } from '../../../services/api/pets/contracts'
+  import { Gender, PetType } from '../../../services/api/pets/contracts'
   import type { CreatePetDto } from '../../../services/api/pets/contracts'
+  import { format, getTime } from 'date-fns'
 
-  export let onCancel: () => void
+  export let onCancel: () => void // PR issue - discuss what to do with empty arrow functions (tslint errors). Wanted to assing one here and one below.
   export let onCreate: (newPet: CreatePetDto) => void
 
-  const resetPet = (): CreatePetDto => {
-    return {
-      name: '',
-      gender: Gender.Undefined,
-      dateOfBirthTimestamp: undefined,
-      description: '',
-      imageURL: '',
-    }
+  let birthdate = format(new Date(), 'yyyy-MM-dd')
+  const newPet: CreatePetDto = {
+    name: '',
+    breed: '',
+    type: PetType.Dog,
+    gender: Gender.Male,
+    dateOfBirthTimestamp: getTime(new Date(birthdate)),
+    description: '',
+    imageURL: '',
   }
 
-  const newPet: CreatePetDto = resetPet()
+  const onBirthdateChange = (birthdateString: string) => {
+    newPet.dateOfBirthTimestamp = getTime(new Date(birthdateString))
+  }
 </script>
 
 <div class="p-4 md:w-1/3">
@@ -25,10 +29,7 @@
       action="#"
       method="POST"
       data-testid="create-pet-form"
-      on:submit|preventDefault={() => {
-        onCreate(newPet)
-        resetPet()
-      }}>
+      on:submit|preventDefault={() => onCreate(newPet)}>
       <div class="px-4 py-4 grid grid-cols-6 gap-3">
         <!--PHOTO-->
         <div class="col-span-6">
@@ -68,19 +69,24 @@
           <label
             for="pet_gender"
             class="block text-sm font-medium text-gray-700">Gender</label>
-          <input
-            data-testid="pet-gender"
-            type="text"
+          <select
+            data-testid="pet_gender"
+            bind:value={newPet.gender}
             id="pet_gender"
-            class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+            class="mt-1 block w-full p-1 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            <option>Male</option>
+            <option>Female</option>
+          </select>
         </div>
         <!--TYPE-->
         <div class="col-span-3">
           <label
             for="pet_type"
-            class="block text-sm font-medium text-gray-700">Type</label>
+            class="block text-sm font-medium text-gray-700">Type (Dog, Cat...
+            etc)</label>
           <select
             data-testid="pet-type"
+            bind:value={newPet.type}
             id="pet_type"
             class="mt-1 block w-full p-1 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             <option>Dog</option>
@@ -95,6 +101,8 @@
           <input
             data-testid="pet-birthdate"
             type="date"
+            on:change={() => onBirthdateChange(birthdate)}
+            bind:value={birthdate}
             id="birthdate"
             class="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
         </div>
@@ -106,6 +114,7 @@
           <input
             data-testid="pet-breed"
             type="text"
+            bind:value={newPet.breed}
             id="pet_breed"
             class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
         </div>
@@ -120,6 +129,7 @@
             <textarea
               data-testid="pet-description"
               id="pet-description"
+              bind:value={newPet.description}
               rows="2"
               class="p-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" />
           </div>
@@ -129,10 +139,7 @@
           <button
             type="button"
             data-testid="pet-cancel-button"
-            on:click={() => {
-              onCancel()
-              resetPet()
-            }}
+            on:click={onCancel}
             class="mx-auto text-white bg-red-600 border-0 py-2 px-8 focus:outline-none hover:bg-red-700 rounded text-lg">
             Cancel
           </button>
