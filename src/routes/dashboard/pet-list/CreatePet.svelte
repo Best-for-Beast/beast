@@ -18,9 +18,8 @@
     imageURL: '',
   }
 
-  const onBirthdateChange = (birthdateString: string) => {
-    newPet.dateOfBirthTimestamp = getTime(new Date(birthdateString))
-  }
+  const onBirthdateChange = (birthdateString: string) =>
+    (newPet.dateOfBirthTimestamp = getTime(new Date(birthdateString)))
 </script>
 
 <div class="p-4 md:w-1/3">
@@ -70,12 +69,12 @@
             for="pet_gender"
             class="block text-sm font-medium text-gray-700">Gender</label>
           <select
-            data-testid="pet_gender"
+            data-testid="pet-gender"
             bind:value={newPet.gender}
             id="pet_gender"
             class="mt-1 block w-full p-1 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-            <option>Male</option>
-            <option>Female</option>
+            <option>male</option>
+            <option>female</option>
           </select>
         </div>
         <!--TYPE-->

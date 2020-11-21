@@ -1,11 +1,13 @@
 import PetList from '../routes/dashboard/pet-list/PetList.svelte'
-import { PET_TO_CREATE } from '../mocks/data/pets'
+import { IdForPet } from '../mocks/data/pets'
+import { format, addMonths } from 'date-fns'
 import '@testing-library/jest-dom'
 import {
   render,
   fireEvent,
   waitFor,
   getByTestId,
+  getByText,
   queryByTestId,
 } from '@testing-library/svelte'
 
@@ -52,20 +54,36 @@ describe('As a pet owner I want to add new pet so I can see it among rest of my 
     expect(petCreateButton).toBeEnabled()
   })
 
-  it('GIVEN form <Name>, <Type>, <Breed>, <Birthdate>, <Gender>, <Description> WHEN pet owner creates pet THEN pet can be found in the pet list', async () => {
+  it('GIVEN form <Name>, <Birthdate>, <Gender>, <Description> WHEN pet owner creates pet THEN pet can be found in the pet list', async () => {
     // Arrange
     const sut = render(PetList)
+    const ageInMonths = 9
+    const birthdate = format(addMonths(new Date(), -ageInMonths), 'yyyy-MM-dd')
     await fireEvent.click(sut.getByTestId('add-pet-button'))
     const addPetItem = sut.getByTestId(petFormTestId)
     await fireEvent.input(getByTestId(sut.container, 'pet-name'), {
-      target: { value: PET_TO_CREATE.name },
+      target: { value: 'Izaura' },
     })
+    await fireEvent.change(getByTestId(sut.container, 'pet-gender'), {
+      target: { value: 'female' },
+    })
+    await fireEvent.input(getByTestId(sut.container, 'pet-description'), {
+      target: { value: 'Description of Izaura' },
+    })
+    await fireEvent.input(getByTestId(sut.container, 'pet-birthdate'), {
+      target: { value: birthdate },
+    })
+    await fireEvent.change(getByTestId(sut.container, 'pet-birthdate'))
     // Act
     await fireEvent.click(getByTestId(addPetItem, 'pet-create-button'))
-    await waitFor(() => sut.getByTestId(`pet-item-${PET_TO_CREATE.id}`))
+    await waitFor(() => sut.getByTestId(`pet-item-${IdForPet}`))
     // Assert
-    const addedPet = sut.getByTestId(`pet-item-${PET_TO_CREATE.id}`)
-    expect(addedPet).toHaveTextContent(PET_TO_CREATE.name)
-    throw '↑ works, finish: <Type>, <Breed>, <Birthdate>, <Gender>, <Description> '
+    const addedPet = sut.getByTestId(`pet-item-${IdForPet}`)
+    expect(addedPet).toHaveTextContent('Izaura')
+    expect(getByTestId(addedPet, `female.svg`)).toBeInTheDocument()
+    expect(addedPet).toHaveTextContent('Description of Izaura')
+    expect(
+      getByText(addedPet, `${ageInMonths} months`, { exact: false })
+    ).toBeDefined()
   })
 })

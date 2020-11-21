@@ -24,8 +24,6 @@ export interface CreatePetDto {
 export interface PetDto {
   id: string
   name: string
-  type: PetType
-  breed: string
   gender: Gender
   dateOfBirthTimestamp?: number
   description: string
