@@ -38,7 +38,7 @@
           <div
             class="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
             <div class="space-y-1 text-center" data-testid="pet-photo">
-              <FileUpload />
+              <FileUpload class="h-16 w-16 text-gray-300 m-auto" />
               <p class="text-sm text-gray-600">
                 <button
                   type="button"
