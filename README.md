@@ -14,6 +14,7 @@ Application for pet owners and vets. Functionalities are focused around the core
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=best-for-beast_app.bestforbeast.com&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=best-for-beast_app.bestforbeast.com)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=best-for-beast_app.bestforbeast.com&metric=security_rating)](https://sonarcloud.io/dashboard?id=best-for-beast_app.bestforbeast.com)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=best-for-beast_app.bestforbeast.com&metric=ncloc)](https://sonarcloud.io/dashboard?id=best-for-beast_app.bestforbeast.com)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=best-for-beast_app.bestforbeast.com&metric=coverage)](https://sonarcloud.io/dashboard?id=best-for-beast_app.bestforbeast.com)
 
 ![Code analysis](https://github.com/best-for-beast/app.bestforbeast.com/workflows/Code%20analysis/badge.svg)
 ![Tests](https://github.com/best-for-beast/app.bestforbeast.com/workflows/Tests/badge.svg)
