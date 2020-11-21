@@ -18,7 +18,7 @@ jobs:
       - name: Install Jest globally
         run:  sudo npm install -g jest
       - name: Run Tests
-        run:  npm run test
+        run:  npm run test -- --covarage
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
