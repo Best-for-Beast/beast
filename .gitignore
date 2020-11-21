@@ -5,6 +5,8 @@
 # Dependency directories
 node_modules/
 
+coverage/
+
 # Logs
 npm-debug.log*
 

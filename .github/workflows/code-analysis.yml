@@ -2,7 +2,7 @@ name: 'Code analysis'
 on:
   push:
     branches:
-      - master
+      - trunk
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
