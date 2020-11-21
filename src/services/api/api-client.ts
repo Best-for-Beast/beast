@@ -16,6 +16,7 @@ export async function get<T>(url: string): Promise<T> {
 export async function post<T>(url: string, body: T): Promise<void> {
   await fetch(url, {
     method: HTTPMethod.Post,
+    mode: 'cors',
     body: JSON.stringify(body),
   })
 }
