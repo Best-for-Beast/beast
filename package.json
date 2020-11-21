@@ -11,7 +11,7 @@
     "dev": "rollup -c -w",
     "start": "sirv public --single",
     "validate": "svelte-check",
-    "test": "jest",
+    "test": "jest --coverage",
     "clear_jest": "jest --clearCache",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint --ext .cjs,.js,.ts,.json,.svelte .",
@@ -21,7 +21,13 @@
     "postinstall": "patch-package"
   },
   "jest": {
-    "testResultsProcessor": "jest-sonar-reporter"
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "testResultsProcessor": "jest-sonar-reporter",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ]
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
