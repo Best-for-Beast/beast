@@ -21,7 +21,7 @@ describe('As a pet owner I want to add new pet so I can see it among rest of my 
     expect(queryByTestId(sut.container, petFormTestId)).not.toBeInTheDocument()
   })
 
-  it('GIVEN pet list WHEN pet owner clicks add new pet THEN A tile with editable form with fields: <Name>, <Type>, <Breed>, <Birthdate>, <Gender>, <Description>, <Photo> is added to pet list', async () => {
+  it('GIVEN pet list WHEN pet owner clicks add new pet THEN A tile with editable form with fields: <Name> required, <Type> required, <Breed>, <Birthdate>, <Gender>, <Description>, <Photo> is added to pet list', async () => {
     // Arrange
     const sut = render(PetList)
     const addButton = sut.getByTestId('add-pet-button')
@@ -31,7 +31,9 @@ describe('As a pet owner I want to add new pet so I can see it among rest of my 
     await waitFor(() => sut.getByTestId(petFormTestId))
     const addPetItem = sut.getByTestId(petFormTestId)
     expect(getByTestId(addPetItem, 'pet-name')).toBeInTheDocument()
+    expect(getByTestId(addPetItem, 'pet-name')).toHaveAttribute('required')
     expect(getByTestId(addPetItem, 'pet-type')).toBeInTheDocument()
+    expect(getByTestId(addPetItem, 'pet-type')).toHaveAttribute('required')
     expect(getByTestId(addPetItem, 'pet-breed')).toBeInTheDocument()
     expect(getByTestId(addPetItem, 'pet-birthdate')).toBeInTheDocument()
     expect(getByTestId(addPetItem, 'pet-gender')).toBeInTheDocument()
@@ -39,19 +41,6 @@ describe('As a pet owner I want to add new pet so I can see it among rest of my 
     expect(getByTestId(addPetItem, 'pet-photo')).toBeInTheDocument()
     expect(getByTestId(addPetItem, 'pet-create-button')).toBeInTheDocument()
     expect(getByTestId(addPetItem, 'pet-cancel-button')).toBeInTheDocument()
-  })
-
-  it('GIVEN create pet form is availible in the dashboard AND at least pet <Name> is specified THEN create action is available', async () => {
-    // Arrange
-    const sut = render(PetList)
-    await fireEvent.click(sut.getByTestId('add-pet-button'))
-    const petNameInput = getByTestId(sut.container, 'pet-name')
-    const petCreateButton = getByTestId(sut.container, 'pet-create-button')
-    expect(petCreateButton).toBeDisabled()
-    // Act
-    await fireEvent.input(petNameInput, { target: { value: 'whatever' } })
-    // Assert
-    expect(petCreateButton).toBeEnabled()
   })
 
   it('GIVEN form <Name>, <Birthdate>, <Gender>, <Description> WHEN pet owner creates pet THEN pet can be found in the pet list', async () => {
@@ -73,7 +62,6 @@ describe('As a pet owner I want to add new pet so I can see it among rest of my 
     await fireEvent.input(getByTestId(sut.container, 'pet-birthdate'), {
       target: { value: birthdate },
     })
-    await fireEvent.change(getByTestId(sut.container, 'pet-birthdate'))
     // Act
     await fireEvent.click(getByTestId(addPetItem, 'pet-create-button'))
     await waitFor(() => sut.getByTestId(`pet-item-${IdForPet}`))

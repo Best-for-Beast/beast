@@ -17,9 +17,7 @@
     description: '',
     imageURL: '',
   }
-
-  const onBirthdateChange = (birthdateString: string) =>
-    (newPet.dateOfBirthTimestamp = getTime(new Date(birthdateString)))
+  $: newPet.dateOfBirthTimestamp = getTime(new Date(birthdate))
 </script>
 
 <div class="p-4 md:w-1/3">
@@ -58,6 +56,7 @@
             class="block text-sm font-medium text-gray-700">Pet's name</label>
           <input
             data-testid="pet-name"
+            required
             type="text"
             bind:value={newPet.name}
             id="pet_name"
@@ -85,9 +84,11 @@
             etc)</label>
           <select
             data-testid="pet-type"
+            required
             bind:value={newPet.type}
             id="pet_type"
             class="mt-1 block w-full p-1 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            <option disabled selected value>-- select an option --</option>
             <option>Dog</option>
             <option>Cat</option>
           </select>
@@ -100,7 +101,6 @@
           <input
             data-testid="pet-birthdate"
             type="date"
-            on:change={() => onBirthdateChange(birthdate)}
             bind:value={birthdate}
             id="birthdate"
             class="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
@@ -144,7 +144,6 @@
           </button>
           <button
             type="submit"
-            disabled={newPet.name.length === 0 || undefined}
             data-testid="pet-create-button"
             class="disabled:opacity-50 mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
             Create
