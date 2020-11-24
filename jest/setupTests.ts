@@ -1,4 +1,4 @@
-import { worker } from './mocks/node'
+import { worker } from '../src/mocks/node'
 /* tslint:disable:no-unused-variable */
 import fetch from 'jest-fetch-mock'
 

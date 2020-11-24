@@ -11,6 +11,6 @@ module.exports = {
   },
   moduleFileExtensions: ['js', 'ts', 'svelte'],
   setupFiles: ['jest-date-mock'],
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  setupFilesAfterEnv: ['<rootDir>/jest/setupTests.ts'],
   testResultsProcessor: 'jest-sonar-reporter',
 }

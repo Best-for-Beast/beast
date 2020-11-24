@@ -4,7 +4,7 @@
   import type { CreatePetDto } from '../../../services/api/pets/contracts'
   import { format, getTime } from 'date-fns'
 
-  export let onCancel: () => void // PR issue - discuss what to do with empty arrow functions (tslint errors). Wanted to assing one here and one below.
+  export let onCancel: () => void
   export let onCreate: (newPet: CreatePetDto) => void
 
   let birthdate = format(new Date(), 'yyyy-MM-dd')
@@ -105,7 +105,7 @@
             id="birthdate"
             class="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
         </div>
-        <!--Breed-->
+        <!--BREED-->
         <div class="col-span-6">
           <label
             for="pet_breed"

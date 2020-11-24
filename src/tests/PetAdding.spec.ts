@@ -1,7 +1,5 @@
-import PetList from '../routes/dashboard/pet-list/PetList.svelte'
-import { IdForPet } from '../mocks/data/pets'
-import { format, addMonths } from 'date-fns'
 import '@testing-library/jest-dom'
+import { format, addMonths } from 'date-fns'
 import {
   render,
   fireEvent,
@@ -10,18 +8,20 @@ import {
   getByText,
   queryByTestId,
 } from '@testing-library/svelte'
+import PetList from '../routes/dashboard/pet-list/PetList.svelte'
+import { IdForPet } from '../mocks/data/pets'
 
-describe('As a pet owner I want to add new pet so I can see it among rest of my pets.', () => {
+describe('As a Pet Owner I want to add new pet so I can see it among rest of my pets.', () => {
   const petFormTestId = 'create-pet-form'
 
-  it('GIVEN pet list WHEN pet owner enters the list THEN no form for adding pet is availible', () => {
+  it('GIVEN pet list WHEN Pet Owner enters the list THEN no form for adding pet is availible', () => {
     // Arrange + Act
     const sut = render(PetList)
     // Assert
     expect(queryByTestId(sut.container, petFormTestId)).not.toBeInTheDocument()
   })
 
-  it('GIVEN pet list WHEN pet owner clicks add new pet THEN A tile with editable form with fields: <Name> required, <Type> required, <Breed>, <Birthdate>, <Gender>, <Description>, <Photo> is added to pet list', async () => {
+  it('GIVEN pet list WHEN Pet Owner clicks add new pet THEN A tile with editable form with fields: <Name> required, <Type> required, <Breed>, <Birthdate>, <Gender>, <Description>, <Photo> is added to pet list', async () => {
     // Arrange
     const sut = render(PetList)
     const addButton = sut.getByTestId('add-pet-button')
@@ -43,7 +43,7 @@ describe('As a pet owner I want to add new pet so I can see it among rest of my 
     expect(getByTestId(addPetItem, 'pet-cancel-button')).toBeInTheDocument()
   })
 
-  it('GIVEN form <Name>, <Birthdate>, <Gender>, <Description> WHEN pet owner creates pet THEN pet can be found in the pet list', async () => {
+  it('GIVEN form <Name>, <Birthdate>, <Gender>, <Description> WHEN Pet Owner creates pet THEN pet can be found in the pet list', async () => {
     // Arrange
     const sut = render(PetList)
     const ageInMonths = 9
