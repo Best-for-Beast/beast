@@ -15,8 +15,6 @@ jobs:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Install dependencies
         run:  npm install
-      - name: Install Jest globally
-        run:  sudo npm install -g jest
       - name: Run Tests
         run:  npm run test -- --coverage
       - name: SonarCloud Scan
