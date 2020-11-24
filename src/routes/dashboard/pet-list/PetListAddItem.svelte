@@ -3,7 +3,7 @@
   import DogAndCatIcon from '../../../assets/svg/dog-and-cat.svg'
   export let isPetCreationOn: boolean
 
-  function handleAddButtonClick() {
+  const handleAddClick = () => {
     isPetCreationOn = true
   }
 </script>
@@ -24,7 +24,7 @@
       </div>
       <button
         data-testid={`${DOM_TEST_IDS.addPetButton}`}
-        on:click={() => handleAddButtonClick()}
+        on:click={() => handleAddClick()}
         class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
         Add
       </button>
