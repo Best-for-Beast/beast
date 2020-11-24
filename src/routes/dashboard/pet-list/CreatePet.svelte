@@ -1,6 +1,7 @@
 <script lang="ts">
   import { format, getTime } from 'date-fns'
   import FileUpload from '../../../assets/svg/file-upload.svg'
+  import { DOM_TEST_IDS } from '../../../tests-identifiers'
   import { Gender, PetType } from '../../../services/api/pets/contracts'
   import type { CreatePetDto } from '../../../services/api/pets/contracts'
 
@@ -25,7 +26,7 @@
     <form
       action="#"
       method="POST"
-      data-testid="create-pet-form"
+      data-testid={DOM_TEST_IDS.petCreateForm}
       on:submit|preventDefault={() => onCreate(newPet)}>
       <div class="px-4 py-4 grid grid-cols-6 gap-3">
         <!--PHOTO-->
@@ -35,7 +36,9 @@
           </span>
           <div
             class="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-            <div class="space-y-1 text-center" data-testid="pet-photo">
+            <div
+              class="space-y-1 text-center"
+              data-testid={DOM_TEST_IDS.petPhoto}>
               <FileUpload class="h-16 w-16 text-gray-300 m-auto" />
               <p class="text-sm text-gray-600">
                 <button
@@ -55,7 +58,7 @@
             for="pet_name"
             class="block text-sm font-medium text-gray-700">Pet's name</label>
           <input
-            data-testid="pet-name"
+            data-testid={DOM_TEST_IDS.petName}
             required
             type="text"
             bind:value={newPet.name}
@@ -68,7 +71,7 @@
             for="pet_gender"
             class="block text-sm font-medium text-gray-700">Gender</label>
           <select
-            data-testid="pet-gender"
+            data-testid={DOM_TEST_IDS.petGender}
             bind:value={newPet.gender}
             id="pet_gender"
             class="mt-1 block w-full p-1 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -83,7 +86,7 @@
             class="block text-sm font-medium text-gray-700">Type (Dog, Cat...
             etc)</label>
           <select
-            data-testid="pet-type"
+            data-testid={DOM_TEST_IDS.petType}
             required
             bind:value={newPet.type}
             id="pet_type"
@@ -99,7 +102,7 @@
             for="birthdate"
             class="block text-sm font-medium text-gray-700">Birthdate</label>
           <input
-            data-testid="pet-birthdate"
+            data-testid={DOM_TEST_IDS.petBirthdate}
             type="date"
             bind:value={birthdate}
             id="birthdate"
@@ -111,7 +114,7 @@
             for="pet_breed"
             class="block text-sm font-medium text-gray-700">Pet's breed</label>
           <input
-            data-testid="pet-breed"
+            data-testid={DOM_TEST_IDS.petBreed}
             type="text"
             bind:value={newPet.breed}
             id="pet_breed"
@@ -126,7 +129,7 @@
           </label>
           <div class="mt-1">
             <textarea
-              data-testid="pet-description"
+              data-testid={DOM_TEST_IDS.petDescription}
               id="pet-description"
               bind:value={newPet.description}
               rows="2"
@@ -137,14 +140,14 @@
         <div class="col-span-6 flex">
           <button
             type="button"
-            data-testid="pet-cancel-button"
+            data-testid={DOM_TEST_IDS.petCancelButton}
             on:click={onCancel}
             class="mx-auto text-white bg-red-600 border-0 py-2 px-8 focus:outline-none hover:bg-red-700 rounded text-lg">
             Cancel
           </button>
           <button
             type="submit"
-            data-testid="pet-create-button"
+            data-testid={DOM_TEST_IDS.petCreateButton}
             class="disabled:opacity-50 mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
             Create
           </button>

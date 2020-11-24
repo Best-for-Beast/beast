@@ -6,6 +6,7 @@ import {
 } from '@testing-library/svelte'
 import { PETS } from '../mocks/data/pets'
 import PetList from '../routes/dashboard/pet-list/PetList.svelte'
+import { DOM_TEST_IDS } from '../tests-identifiers'
 import { Gender } from '../services/api/pets/contracts'
 
 describe('As a Pet Owner I want to access Dashboard so that I can see the list of my pets', () => {
@@ -16,14 +17,14 @@ describe('As a Pet Owner I want to access Dashboard so that I can see the list o
     await waitFor(() => sut.getAllByTestId('pet-item', { exact: false }))
     // Assert
     PETS.forEach((pet) => {
-      const petItem = sut.getByTestId(`pet-item-${pet.id}`)
+      const petItem = sut.getByTestId(DOM_TEST_IDS.createPetCardItem(pet.id))
       expect(getByText(petItem, pet.name)).toBeDefined()
       expect(getByText(petItem, pet.description)).toBeDefined()
       expect(getByText(petItem, ' months', { exact: false })).toBeDefined()
       if (pet.gender === Gender.Female)
-        expect(getByTestId(petItem, 'female.svg')).toBeDefined()
+        expect(getByTestId(petItem, DOM_TEST_IDS.petFemaleIcon)).toBeDefined()
       if (pet.gender === Gender.Male)
-        expect(getByTestId(petItem, 'male.svg')).toBeDefined()
+        expect(getByTestId(petItem, DOM_TEST_IDS.petMaleIcon)).toBeDefined()
     })
   })
 })

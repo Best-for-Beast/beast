@@ -1,4 +1,4 @@
-import { Gender, PetDto } from '../../se../../services/api/pets/contracts'
+import { Gender, PetDto } from '../../services/api/pets/contracts'
 
 export const PETS: PetDto[] = [
   {
