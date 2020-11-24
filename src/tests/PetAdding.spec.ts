@@ -14,14 +14,20 @@ import { IdForPet } from '../mocks/data/pets'
 describe('As a Pet Owner I want to add new pet so I can see it among rest of my pets.', () => {
   const petFormTestId = 'create-pet-form'
 
-  it('GIVEN pet list WHEN Pet Owner enters the list THEN no form for adding pet is availible', () => {
+  it(`
+  GIVEN pet list 
+  WHEN Pet Owner enters the list 
+  THEN no form for adding pet is availible`, () => {
     // Arrange + Act
     const sut = render(PetList)
     // Assert
     expect(queryByTestId(sut.container, petFormTestId)).not.toBeInTheDocument()
   })
 
-  it('GIVEN pet list WHEN Pet Owner clicks add new pet THEN A tile with editable form with fields: <Name> required, <Type> required, <Breed>, <Birthdate>, <Gender>, <Description>, <Photo> is added to pet list', async () => {
+  it(`
+  GIVEN pet list 
+  WHEN Pet Owner clicks add new pet 
+  THEN A tile with editable form with fields: <Name> required, <Type> required, <Breed>, <Birthdate>, <Gender>, <Description>, <Photo> is added to pet list`, async () => {
     // Arrange
     const sut = render(PetList)
     const addButton = sut.getByTestId('add-pet-button')
@@ -43,7 +49,10 @@ describe('As a Pet Owner I want to add new pet so I can see it among rest of my 
     expect(getByTestId(addPetItem, 'pet-cancel-button')).toBeInTheDocument()
   })
 
-  it('GIVEN form <Name>, <Birthdate>, <Gender>, <Description> WHEN Pet Owner creates pet THEN pet can be found in the pet list', async () => {
+  it(`
+  GIVEN form <Name>, <Birthdate>, <Gender>, <Description> 
+  WHEN Pet Owner creates pet 
+  THEN pet can be found in the pet list`, async () => {
     // Arrange
     const sut = render(PetList)
     const ageInMonths = 9
