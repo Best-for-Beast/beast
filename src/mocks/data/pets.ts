@@ -1,6 +1,6 @@
-import { Gender, IPetResultBody } from '../../services/api/pets/interfaces'
+import { Gender, PetDto } from '../../services/api/pets/contracts'
 
-const PETS: IPetResultBody[] = [
+export const PETS: PetDto[] = [
   {
     id: '13ef10a9-3279-4096-a48e-13acf44724a4',
     name: 'Grumpy',
@@ -23,4 +23,6 @@ const PETS: IPetResultBody[] = [
   },
 ]
 
-export default PETS
+export const PET_ID = 'b6c8872b-2f63-4511-966e-a691c30018d4'
+export const PET_IMAGE_URL =
+  'https://www.contentqueens.co.uk/media/1118/tuna.jpg?width=500&height=281.05263157894734'

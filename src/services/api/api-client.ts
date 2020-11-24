@@ -6,13 +6,22 @@ enum HTTPMethod {
   Delete = 'DELETE',
 }
 
-async function request<T>(url: string, method: HTTPMethod): Promise<T> {
+export async function get<T>(url: string): Promise<T> {
   const result = await fetch(url, {
-    method,
+    method: HTTPMethod.Get,
   })
-  return await result.json()
+  return result.json()
 }
 
-export function get<T>(url: string): Promise<T> {
-  return request(url, HTTPMethod.Get)
+export async function post<TBody, TResult>(
+  url: string,
+  body: TBody
+): Promise<TResult> {
+  const result = await fetch(url, {
+    method: HTTPMethod.Post,
+    mode: 'cors',
+    body: JSON.stringify(body),
+  })
+  if (result.status === 204) return (null as unknown) as TResult
+  return result.json()
 }

@@ -1,5 +1,5 @@
 import App from './App.svelte'
-import { worker } from './mocks/browser'
+import { worker } from './mocks/browser-worker'
 
 worker.start()
 

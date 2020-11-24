@@ -1,0 +1,16 @@
+export const DOM_TEST_IDS = {
+  addPetButton: 'add-pet-button',
+  petCreateForm: 'create-pet-form',
+  petPhoto: 'pet-photo',
+  petName: 'pet-name',
+  petGender: 'pet-gender',
+  petType: 'pet-type',
+  petBirthdate: 'pet-birthdate',
+  petBreed: 'petBreed',
+  petDescription: 'pet-description',
+  petCreateButton: 'pet-create-button',
+  petCancelButton: 'pet-cancel-button',
+  petFemaleIcon: 'female.svg',
+  petMaleIcon: 'male.svg',
+  createPetCardItem: (id: string): string => `pet-item-${id}`,
+}

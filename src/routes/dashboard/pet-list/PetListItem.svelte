@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { Gender } from '../../../services/api/pets/interfaces'
+  import type { Gender } from '../../../services/api/pets/contracts'
   import ArrowCircleRightIcon from '../../../assets/svg/arrow-circle-right.svg'
-
   import { formatPetAge } from './helpers'
   import PetGender from './PetGender.svelte'
+  import { DOM_TEST_IDS } from '../../../tests-identifiers'
 
   export let id: string
   export let name: string
@@ -18,7 +18,9 @@
 </script>
 
 <div class="p-4 md:w-1/3">
-  <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
+  <div
+    class="h-full shadow sm:rounded-md rounded-lg overflow-hidden"
+    data-testid={`${DOM_TEST_IDS.createPetCardItem(id)}`}>
     <img
       class="lg:h-48 md:h-36 w-full object-cover object-center"
       src={imageURL}

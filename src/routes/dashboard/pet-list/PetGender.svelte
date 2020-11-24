@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Gender } from '../../../services/api/pets/interfaces'
+  import { Gender } from '../../../services/api/pets/contracts'
   import MaleIcon from '../../../assets/svg/male.svg'
   import FemaleIcon from '../../../assets/svg/female.svg'
 

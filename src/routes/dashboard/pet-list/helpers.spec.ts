@@ -1,7 +1,6 @@
 import { advanceTo, clear } from 'jest-date-mock'
 import { getTime } from 'date-fns'
 import { pl } from 'date-fns/locale'
-
 import { formatPetAge } from './helpers'
 
 describe('formatPetAge', () => {
