@@ -7,9 +7,11 @@
 
   let isPetCreationOn = false
   let pets = getPets()
+
   const cancelNewPet = () => {
     isPetCreationOn = false
   }
+
   const createNewPet = async (pet: CreatePetDto) => {
     await postPet(pet)
     isPetCreationOn = false
