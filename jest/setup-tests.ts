@@ -1,4 +1,4 @@
-import { worker } from '../src/mocks/node'
+import { worker } from '../src/mocks/node-worker'
 import 'jest-fetch-mock'
 
 beforeAll(() => worker.listen())

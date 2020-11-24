@@ -1,8 +1,8 @@
 <script lang="ts">
   import { getPets, postPet } from '../../../services/api/pets'
   import PetListItem from './PetListItem.svelte'
-  import PetListAddItem from './PetListAddItem.svelte'
-  import CreatePet from './CreatePet.svelte'
+  import AddPetCard from './AddPetCard.svelte'
+  import CreatePetForm from './CreatePetForm.svelte'
   import type { CreatePetDto } from '../../../services/api/pets/contracts'
 
   let isPetCreationOn = false
@@ -10,8 +10,8 @@
   const cancelNewPet = () => {
     isPetCreationOn = false
   }
-  const createNewPet = async (newPet: CreatePetDto) => {
-    await postPet(newPet)
+  const createNewPet = async (pet: CreatePetDto) => {
+    await postPet(pet)
     isPetCreationOn = false
     pets = getPets()
   }
@@ -28,8 +28,8 @@
     <p>An error occurred! {error}</p>
   {/await}
   {#if isPetCreationOn}
-    <CreatePet onCancel={cancelNewPet} onCreate={createNewPet} />
+    <CreatePetForm onCancel={cancelNewPet} onCreate={createNewPet} />
   {:else}
-    <PetListAddItem bind:isPetCreationOn />
+    <AddPetCard bind:isPetCreationOn />
   {/if}
 </div>

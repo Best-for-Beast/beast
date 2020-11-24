@@ -28,7 +28,7 @@ describe('As a Pet Owner I want to add new pet so I can see it among rest of my 
   it(`
   GIVEN pet list 
   WHEN Pet Owner clicks add new pet 
-  THEN A tile with editable form with fields: <Name> required, <Type> required, <Breed>, <Birthdate>, <Gender>, <Description>, <Photo> is added to pet list`, async () => {
+  THEN A create pet form with fields: <Name> required, <Type> required, <Breed>, <Birthdate>, <Gender>, <Description>, <Photo> is added to pet list`, async () => {
     // Arrange
     const sut = render(PetList)
     const addButton = sut.getByTestId(DOM_TEST_IDS.addPetButton)
