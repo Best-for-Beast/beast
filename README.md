@@ -1,9 +1,3 @@
-# app.bestforbeast.com
-
-## Frontend application for bestforbeast.com
-
-Application for pet owners and vets. Functionalities are focused around the core element of pet health record book in an online form.
-
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=best-for-beast_app.bestforbeast.com&metric=bugs)](https://sonarcloud.io/dashboard?id=best-for-beast_app.bestforbeast.com)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=best-for-beast_app.bestforbeast.com&metric=code_smells)](https://sonarcloud.io/dashboard?id=best-for-beast_app.bestforbeast.com)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=best-for-beast_app.bestforbeast.com&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=best-for-beast_app.bestforbeast.com)
@@ -18,6 +12,12 @@ Application for pet owners and vets. Functionalities are focused around the core
 
 ![Code analysis](https://github.com/best-for-beast/app.bestforbeast.com/workflows/Code%20analysis/badge.svg)
 ![Tests](https://github.com/best-for-beast/app.bestforbeast.com/workflows/Tests/badge.svg)
+
+# app.bestforbeast.com
+
+## Frontend application for bestforbeast.com
+
+Application for pet owners and vets. Functionalities are focused around the core element of pet health record book in an online form.
 
 ## Get started
 

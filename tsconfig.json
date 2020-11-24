@@ -1,7 +1,7 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
 
-  "include": ["src/**/*", "src/types/**/*", "jest/setupTests.ts"],
+  "include": ["src/**/*", "src/types/**/*", "jest/setup-tests.ts"],
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
   "compilerOptions": {
     "types": ["svelte", "jest"],
@@ -11,6 +11,7 @@
     "noImplicitReturns": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
-    "alwaysStrict": true
+    "alwaysStrict": true,
+    "noUnusedLocals": true
   }
 }

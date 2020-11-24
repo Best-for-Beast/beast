@@ -1,4 +1,4 @@
-name: 'Code analysis'
+name: 'Tests and code analysis'
 on:
   push:
     branches:

@@ -1,4 +1,3 @@
-import PetList from '../routes/dashboard/pet-list/PetList.svelte'
 import {
   render,
   waitFor,
@@ -6,6 +5,7 @@ import {
   getByTestId,
 } from '@testing-library/svelte'
 import { PETS } from '../mocks/data/pets'
+import PetList from '../routes/dashboard/pet-list/PetList.svelte'
 import { Gender } from '../services/api/pets/contracts'
 
 describe('As a Pet Owner I want to access Dashboard so that I can see the list of my pets', () => {

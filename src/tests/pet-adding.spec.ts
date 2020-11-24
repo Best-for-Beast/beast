@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { format, addMonths } from 'date-fns'
+import { format, subMonths } from 'date-fns'
 import {
   render,
   fireEvent,
@@ -9,7 +9,7 @@ import {
   queryByTestId,
 } from '@testing-library/svelte'
 import PetList from '../routes/dashboard/pet-list/PetList.svelte'
-import { IdForPet } from '../mocks/data/pets'
+import { PET_ID } from '../mocks/data/pets'
 
 describe('As a Pet Owner I want to add new pet so I can see it among rest of my pets.', () => {
   const petFormTestId = 'create-pet-form'
@@ -56,7 +56,7 @@ describe('As a Pet Owner I want to add new pet so I can see it among rest of my 
     // Arrange
     const sut = render(PetList)
     const ageInMonths = 9
-    const birthdate = format(addMonths(new Date(), -ageInMonths), 'yyyy-MM-dd')
+    const birthdate = format(subMonths(new Date(), ageInMonths), 'yyyy-MM-dd')
     await fireEvent.click(sut.getByTestId('add-pet-button'))
     const addPetItem = sut.getByTestId(petFormTestId)
     await fireEvent.input(getByTestId(sut.container, 'pet-name'), {
@@ -73,9 +73,9 @@ describe('As a Pet Owner I want to add new pet so I can see it among rest of my 
     })
     // Act
     await fireEvent.click(getByTestId(addPetItem, 'pet-create-button'))
-    await waitFor(() => sut.getByTestId(`pet-item-${IdForPet}`))
+    await waitFor(() => sut.getByTestId(`pet-item-${PET_ID}`))
     // Assert
-    const addedPet = sut.getByTestId(`pet-item-${IdForPet}`)
+    const addedPet = sut.getByTestId(`pet-item-${PET_ID}`)
     expect(addedPet).toHaveTextContent('Izaura')
     expect(getByTestId(addedPet, `female.svg`)).toBeInTheDocument()
     expect(addedPet).toHaveTextContent('Description of Izaura')

@@ -1,6 +1,6 @@
 import { rest } from 'msw'
 import type { CreatePetDto, PetDto } from '../services/api/pets/contracts'
-import { PETS, IdForPet, ImageUrlForPet } from './data/pets'
+import { PETS, PET_ID, PET_IMAGE_URL } from './data/pets'
 
 const pets = PETS
 
@@ -11,12 +11,12 @@ export const handlers = [
   rest.post('http://localhost:5000/api/pets', (req, res, ctx) => {
     const createPetDto: CreatePetDto = JSON.parse(req.body as string)
     const newPet: PetDto = {
-      id: IdForPet,
+      id: PET_ID,
       name: createPetDto.name,
       description: createPetDto.description,
       dateOfBirthTimestamp: createPetDto.dateOfBirthTimestamp,
       gender: createPetDto.gender,
-      imageURL: ImageUrlForPet,
+      imageURL: PET_IMAGE_URL,
     }
     pets.push(newPet)
     return res(ctx.status(204))

@@ -23,6 +23,6 @@ export const PETS: PetDto[] = [
   },
 ]
 
-export const IdForPet = 'b6c8872b-2f63-4511-966e-a691c30018d4'
-export const ImageUrlForPet =
+export const PET_ID = 'b6c8872b-2f63-4511-966e-a691c30018d4'
+export const PET_IMAGE_URL =
   'https://www.contentqueens.co.uk/media/1118/tuna.jpg?width=500&height=281.05263157894734'

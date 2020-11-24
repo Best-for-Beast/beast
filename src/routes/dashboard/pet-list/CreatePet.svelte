@@ -1,8 +1,8 @@
 <script lang="ts">
+  import { format, getTime } from 'date-fns'
   import FileUpload from '../../../assets/svg/file-upload.svg'
   import { Gender, PetType } from '../../../services/api/pets/contracts'
   import type { CreatePetDto } from '../../../services/api/pets/contracts'
-  import { format, getTime } from 'date-fns'
 
   export let onCancel: () => void
   export let onCreate: (newPet: CreatePetDto) => void
