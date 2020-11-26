@@ -24,7 +24,7 @@ self.addEventListener('message', async function (event) {
   const clientId = event.source.id
   const client = await event.currentTarget.clients.get(clientId)
   const allClients = await self.clients.matchAll()
-  const allClientIds = allClients.map((client) => client.id)
+  const allClientIds = allClients.map((workerClient) => workerClient.id)
 
   switch (event.data) {
     case 'KEEPALIVE_REQUEST': {
@@ -60,8 +60,8 @@ self.addEventListener('message', async function (event) {
     }
 
     case 'CLIENT_CLOSED': {
-      const remainingClients = allClients.filter((client) => {
-        return client.id !== clientId
+      const remainingClients = allClients.filter((workerClient) => {
+        return workerClient.id !== clientId
       })
 
       // Unregister itself when there are no more clients
@@ -142,7 +142,7 @@ self.addEventListener('fetch', async function (event) {
         case 'MOCK_SUCCESS': {
           setTimeout(
             resolve.bind(this, createResponse(clientMessage)),
-            clientMessage.payload.delay,
+            clientMessage.payload.delay
           )
           break
         }
@@ -174,7 +174,7 @@ This exception has been gracefully handled as a 500 response, however, it's stro
 If you wish to mock an error response, please refer to this guide: https://mswjs.io/docs/recipes/mocking-error-responses\
   `,
             request.method,
-            request.url,
+            request.url
           )
 
           return resolve(createResponse(clientMessage))
@@ -185,9 +185,9 @@ If you wish to mock an error response, please refer to this guide: https://mswjs
         '[MSW] Failed to mock a "%s" request to "%s": %s',
         request.method,
         request.url,
-        error,
+        error
       )
-    }),
+    })
   )
 })
 
