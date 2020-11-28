@@ -128,7 +128,6 @@
             Description
           </label>
           <div class="mt-1">
-            AddPet
             <textarea
               data-testid={DOM_TEST_IDS.petDescription}
               id="pet-description"
