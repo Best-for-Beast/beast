@@ -4,7 +4,7 @@ This log lists the architectural decisions for app.beastforbeast.com.
 
 <!-- adrlog -->
 
-* [ADR-0001](0001-use-markdown-architectural-decision-records.md) - Use Markdown Architectural Decision Records
+* [ADR-0000](0000-use-markdown-architectural-decision-records.md) - Use Markdown Architectural Decision Records
 
 <!-- adrlogstop -->
 
