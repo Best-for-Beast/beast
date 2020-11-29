@@ -71,17 +71,5 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "*.{js,ts,svelte}": [
-      "prettier --write",
-      "eslint --cache --fix"
-    ],
-    "*.css": [
-      "prettier --write"
-    ],
-    "*.svelte": [
-      "svelte-check"
-    ]
   }
 }
