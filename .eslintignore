@@ -1,5 +1,6 @@
 public/build
 jest.config.js
+lint-staged.config.js
 rollup.config.js
 svelte.config.js
 tailwind.config.js
