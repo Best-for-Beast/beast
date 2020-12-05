@@ -18,6 +18,10 @@
 
 Application for pet owners and vets. Functionalities are focused around the core element of pet health record book in an online form.
 
+## Documentation
+
+[ADR](docs/adr/index.md)
+
 ## Get started
 
 Install the dependencies...

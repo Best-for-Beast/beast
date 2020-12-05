@@ -30,6 +30,7 @@
     "@types/jest": "^26.0.15",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
+    "adr-log": "^2.2.0",
     "autoprefixer": "^9.8.6",
     "date-fns": "^2.16.1",
     "eslint": "^7.8.0",
@@ -70,17 +71,5 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "*.{js,ts,svelte}": [
-      "prettier --write",
-      "eslint --cache --fix"
-    ],
-    "*.css": [
-      "prettier --write"
-    ],
-    "*.svelte": [
-      "svelte-check"
-    ]
   }
 }
