@@ -39,7 +39,7 @@
       <div class="text-right">
         <a
           class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-          href={`/#/pet/${id}`}>
+          href={`/#/pets/${id}`}>
           <span>Details</span>
           <ArrowCircleRightIcon class="pl-1 h-6 w-6" />
         </a>

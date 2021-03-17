@@ -11,6 +11,13 @@ export enum PetType {
   Undefined = 'undefined',
 }
 
+export enum HealthRecordType {
+  MedicalResults = 'Medical test results',
+  Vaccinations = 'Vaccinations',
+  Diseases = 'Diseases',
+  Deworming = 'deworming',
+}
+
 export interface CreatePetDto {
   name: string
   type: PetType
@@ -28,4 +35,17 @@ export interface PetDto {
   dateOfBirthTimestamp?: number
   description: string
   imageURL?: string
+}
+
+export interface HealthRecordDto {
+  type: HealthRecordType
+  title: string
+  description: string
+  occuredOnTimestamp: number
+  attachments: string[]
+}
+
+export interface PetHealthDto {
+  pet: PetDto
+  healthRecords: HealthRecordDto[]
 }

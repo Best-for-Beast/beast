@@ -1,4 +1,9 @@
-import { Gender, PetDto } from '../../services/api/pets/contracts'
+import {
+  Gender,
+  PetDto,
+  PetHealthDto,
+  HealthRecordType,
+} from '../../services/api/pets/contracts'
 
 export const PETS: PetDto[] = [
   {
@@ -26,3 +31,20 @@ export const PETS: PetDto[] = [
 export const PET_ID = 'b6c8872b-2f63-4511-966e-a691c30018d4'
 export const PET_IMAGE_URL =
   'https://www.contentqueens.co.uk/media/1118/tuna.jpg?width=500&height=281.05263157894734'
+
+export const PETS_HEALTH: PetHealthDto[] = PETS.map((pet) => {
+  return {
+    pet: pet,
+    healthRecords: [
+      {
+        title: 'Badanie 1',
+        description: `☑ Mocz 
+☑ USG jamy brzusznej 
+☑ Morfologia`,
+        occuredOnTimestamp: 1580204000000,
+        attachments: [],
+        type: HealthRecordType.MedicalResults,
+      },
+    ],
+  }
+})

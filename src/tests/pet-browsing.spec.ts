@@ -20,7 +20,7 @@ describe('As a Pet Owner I want to access Dashboard so that I can see the list o
       const petItem = sut.getByTestId(DOM_TEST_IDS.createPetCardItem(pet.id))
       expect(getByText(petItem, pet.name)).toBeDefined()
       expect(getByText(petItem, pet.description)).toBeDefined()
-      expect(getByText(petItem, ' months', { exact: false })).toBeDefined()
+      expect(getByText(petItem, ' month', { exact: false })).toBeDefined()
       if (pet.gender === Gender.Female)
         expect(getByTestId(petItem, DOM_TEST_IDS.petFemaleIcon)).toBeDefined()
       if (pet.gender === Gender.Male)
